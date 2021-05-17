@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Racing.Model.Vehicle.VehicleList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.VehicleId)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Class)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VehicleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleId })
+            </td>
+        </tr>
+    }
+</table>
+@section scripts {
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("i[data-toggle='star']")
+                .css({ "cursor": "pointer" })
+                .click(function (e) {
+                    var target = $(e.target);
+                    var noteId = target.attr("data-id");
+                    var starSet = target.hasClass("glyphicon-star");
+
+                    $.ajax({
+                        method: starSet ? "DELETE" : "PUT",
+                        url: "/api/Vehicle/" + vehicleId + "/star",
+                        data: null
+                    })
+                        .done(function (r) {
+                            target.removeClass();
+                            target.addClass("glyphicon" + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+
+                        })
+                        .fail(function (r) {
+                            alert("Failed to change star status");
+                        });
+                });
+        });
+    </script>
