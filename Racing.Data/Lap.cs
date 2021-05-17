@@ -12,8 +12,9 @@ namespace Racing.Data
     {
         [Key]
         public int LapId { get; set; }
-        [ForeignKey("SessionId")]
+        [ForeignKey(nameof(Session))]
         public int SessionId { get; set; }
+        public virtual Session Session { get; set; }
         [Required]
         public int LapTime { get; set; }
         public int SectorOne { get; set; }

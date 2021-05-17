@@ -12,8 +12,9 @@ namespace Racing.Data
     {
         [Key]
         public int SessionId { get; set; }
-        [ForeignKey("VehicleId")]
+        [ForeignKey(nameof(Vehicle))]
         public int VehicleId { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
         [Required]
         public string Track { get; set; }
         public ICollection<Lap> LapList { get; set; }
