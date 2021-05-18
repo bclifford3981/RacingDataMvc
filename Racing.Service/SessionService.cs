@@ -24,6 +24,7 @@ namespace Racing.Service
                 new Session()
                 {
                     OwnerId = _userId,
+                    VehicleId = model.VehicleId,
                     Track = model.Track,
                     CreatedUtc = DateTimeOffset.UtcNow
                 };
@@ -77,7 +78,7 @@ namespace Racing.Service
                 SessionId = entity.SessionId,
                 Track = entity.Track,
                 LapList = entity.LapList,
-                AverageLapTime = entity.AverageLapTime,
+                //AverageLapTime = entity.AverageLapTime,
                 BestLapTime = entity.BestLapTime,
                 BestSectorOne = entity.BestSectorOne,
                 BestSectorTwo = entity.BestSectorTwo,

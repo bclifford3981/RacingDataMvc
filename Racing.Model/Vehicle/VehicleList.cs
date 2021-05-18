@@ -12,8 +12,8 @@ namespace Racing.Model.Vehicle
         public int VehicleId { get; set; }
         public string Name { get; set; }
         public string Class { get; set; }
-        [UIHint("Starred")]
-        public bool IsStarred { get; set; }
+        //[UIHint("Starred")]
+        //public bool? IsStarred { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 

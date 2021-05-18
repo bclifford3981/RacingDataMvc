@@ -9,12 +9,14 @@ namespace Racing.Model
 {
     public class VehicleCreate
     {
-        public int VehicleId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Class { get; set; }
+        [Required]
         public string Series { get; set; }
-        public int HP { get; set; }
+        public double HP { get; set; }
         public decimal Weight { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
+        
     }
 }

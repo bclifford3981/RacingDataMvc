@@ -38,16 +38,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.VehicleId)
+                @Html.DisplayFor(modelItem => item.VehicleId)
             </td>
             <td>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayNameFor(model => model.Class)
+                @Html.DisplayFor(modelItem => item.Class)
             </td>
             <td>
-                @Html.DisplayNameFor(model => model.CreatedUtc)
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
@@ -83,3 +83,4 @@
                 });
         });
     </script>
+    }

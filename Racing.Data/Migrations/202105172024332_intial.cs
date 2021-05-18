@@ -3,7 +3,7 @@ namespace Racing.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class adds : DbMigration
+    public partial class intial : DbMigration
     {
         public override void Up()
         {
@@ -48,9 +48,8 @@ namespace Racing.Data.Migrations
                         Name = c.String(nullable: false),
                         Class = c.String(nullable: false),
                         Series = c.String(nullable: false),
-                        HP = c.Int(nullable: false),
+                        HP = c.Double(nullable: false),
                         Weight = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsStarred = c.Boolean(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                         OwnerId = c.Guid(nullable: false),

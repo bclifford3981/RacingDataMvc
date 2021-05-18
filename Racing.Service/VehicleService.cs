@@ -4,9 +4,11 @@ using Racing.Model.Vehicle;
 using RacingDataMvc.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ubiety.Dns.Core;
 
 namespace Racing.Service
 {
@@ -52,8 +54,7 @@ namespace Racing.Service
                                 {
                                     VehicleId = e.VehicleId,
                                     Name = e.Name,
-                                    Class = e.Class,
-                                    IsStarred = e.IsStarred,
+                                    Class = e.Class,                                    
                                     CreatedUtc = e.CreatedUtc
                                 }
                                 );
