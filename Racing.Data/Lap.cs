@@ -21,7 +21,7 @@ namespace Racing.Data
         public int SectorTwo { get; set; }
         public int SectorThree { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
         public Guid OwnerId { get; set; }
     }
 }

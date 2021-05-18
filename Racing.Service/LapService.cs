@@ -24,6 +24,7 @@ namespace Racing.Service
                 new Lap()
                 {
                     OwnerId = _userId,
+                    SessionId=model.SessionId,
                     LapTime = model.LapTime,
                     SectorOne = model.SectorOne,
                     SectorTwo = model.SectorTwo,
@@ -32,6 +33,8 @@ namespace Racing.Service
                 };
             using (var ctx = new ApplicationDbContext())
             {
+                var session = ctx.Sessions.SingleOrDefault(s => s.SessionId == entity.SessionId);
+                session.LapList.Add(entity);
                 ctx.Laps.Add(entity);
                 return ctx.SaveChanges() == 1;
             }

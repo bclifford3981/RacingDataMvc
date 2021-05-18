@@ -17,41 +17,53 @@ namespace Racing.Data
         public virtual Vehicle Vehicle { get; set; }
         [Required]
         public string Track { get; set; }
-        public ICollection<Lap> LapList { get; set; }
-        public int AverageLapTime
+        public List<Lap> LapList { get; set; } = new List<Lap>();
+        public int? AverageLapTime
         {
             get
             {
+                int solve = 0;
                 int total = 0;
                 foreach (Lap lap in LapList)
                 {
                     total += lap.LapTime;
                 }
-                int solve = total / LapList.Count();
+
+                if (LapList.Count == 0)
+                {
+                    solve = 0;
+                    return 0;
+                }
+                solve = total / LapList.Count();
                 return solve;
             }
         }
-        public int BestLapTime
+
+        public int? BestLapTime
         {
             get
             {
+                int cancel = 0;
                 int search = 0;
                 foreach (Lap lap in LapList)
                 {
                     if (search == 0)
                     {
                         search = lap.LapTime;
-
                     }
                     if (search > lap.LapTime)
                     {
                         search = lap.LapTime;
                     }
+                    if (search == 0)
+                    {
+                        return cancel;
+                    }
                 }
                 return search;
             }
         }
-        public int BestSectorOne
+        public int? BestSectorOne
         {
             get
             {
@@ -69,8 +81,9 @@ namespace Racing.Data
                 }
                 return search;
             }
+
         }
-        public int BestSectorTwo
+        public int? BestSectorTwo
         {
             get
             {
@@ -88,8 +101,9 @@ namespace Racing.Data
                 }
                 return search;
             }
+
         }
-        public int BestSectorThree
+        public int? BestSectorThree
         {
             get
             {
@@ -107,14 +121,16 @@ namespace Racing.Data
                 }
                 return search;
             }
+
         }
-        public int OptimalLap
+        public int? OptimalLap
         {
             get
             {
-                int opt = BestSectorOne + BestSectorTwo + BestSectorThree;
+                int? opt = BestSectorOne + BestSectorTwo + BestSectorThree;
                 return opt;
             }
+
         }
 
         //public TempData AvgAirTemp { get; set; }

@@ -8,6 +8,7 @@ namespace Racing.Model.Laps
 {
     public class LapCreate
     {
+        public int SessionId { get; set; }
         public int LapId { get; set; }
         public int LapTime { get; set; }
         public int SectorOne { get; set; }

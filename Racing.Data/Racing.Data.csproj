@@ -61,6 +61,18 @@
     <Compile Include="Migrations\202105172024332_intial.Designer.cs">
       <DependentUpon>202105172024332_intial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105181522302_nullables.cs" />
+    <Compile Include="Migrations\202105181522302_nullables.Designer.cs">
+      <DependentUpon>202105181522302_nullables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181603161_nullables2.cs" />
+    <Compile Include="Migrations\202105181603161_nullables2.Designer.cs">
+      <DependentUpon>202105181603161_nullables2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181942125_staticmethodprop.cs" />
+    <Compile Include="Migrations\202105181942125_staticmethodprop.Designer.cs">
+      <DependentUpon>202105181942125_staticmethodprop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -76,6 +88,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105172024332_intial.resx">
       <DependentUpon>202105172024332_intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181522302_nullables.resx">
+      <DependentUpon>202105181522302_nullables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181603161_nullables2.resx">
+      <DependentUpon>202105181603161_nullables2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181942125_staticmethodprop.resx">
+      <DependentUpon>202105181942125_staticmethodprop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

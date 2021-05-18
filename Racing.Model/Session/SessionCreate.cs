@@ -11,5 +11,6 @@ namespace Racing.Model.Session
         public int VehicleId { get; set; }
         public string Track { get; set; }
         
+
     }
 }
