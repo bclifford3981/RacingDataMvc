@@ -45,6 +45,7 @@ namespace Racing.Service
                     ctx
                         .Sessions
                         .Where(e => e.OwnerId == _userId)
+                        .ToList()
                         .Select(
                             e =>
                                 new SessionList
@@ -81,11 +82,11 @@ namespace Racing.Service
                 Track = entity.Track,
                 LapList = entity.LapList,
                 AverageLapTime = entity.AverageLapTime,
-                //BestLapTime = entity.BestLapTime,
-                //BestSectorOne = entity.BestSectorOne,
-                //BestSectorTwo = entity.BestSectorTwo,
-                //BestSectorThree = entity.BestSectorThree,
-                //OptimalLap = entity.OptimalLap,
+                BestLapTime = entity.BestLapTime,
+                BestSectorOne = entity.BestSectorOne,
+                BestSectorTwo = entity.BestSectorTwo,
+                BestSectorThree = entity.BestSectorThree,
+                OptimalLap = entity.OptimalLap,
                 CreatedUtc = entity.CreatedUtc
             };
             }
