@@ -9,7 +9,9 @@ namespace Racing.Model.Session
 {
     public class SessionLapList
     {
-        public List<Lap> LapList { get; set; }
+        //public List<Lap> LapList { get; set; }
+        public virtual ICollection<Lap> LapList { get; set; }
+
         public int? AverageLapTime { get; set; }
         public int? BestLapTime { get; set; }
         public int? BestSectorOne { get; set; }

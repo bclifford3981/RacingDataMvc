@@ -24,11 +24,27 @@ namespace Racing.Service
                 new Lap()
                 {
                     OwnerId = _userId,
-                    SessionId=model.SessionId,
-                    LapTime = model.LapTime,
-                    SectorOne = model.SectorOne,
-                    SectorTwo = model.SectorTwo,
-                    SectorThree = model.SectorThree,
+                    SessionId = model.SessionId,
+                    LapMinutes = model.LapMinutes,
+                    LapSeconds = model.LapSeconds,
+                    LapTenthSeconds = model.LapTenthSeconds,
+                    LapHundrethSeconds = model.LapHundrethSeconds,
+                    LapMilliseconds = model.LapMilliseconds,
+                    SectorOneMinutes = model.SectorOneMinutes,
+                    SectorOneSeconds = model.SectorOneSeconds,
+                    SectorOneTenthSeconds = model.SectorOneTenthSeconds,
+                    SectorOneHundrethSeconds = model.SectorOneHundrethSeconds,
+                    SectorOneMilliseconds = model.SectorOneMilliseconds,
+                    SectorTwoMinutes = model.SectorTwoMinutes,
+                    SectorTwoSeconds = model.SectorTwoSeconds,
+                    SectorTwoTenthSeconds = model.SectorTwoTenthSeconds,
+                    SectorTwoHundrethSeconds = model.SectorTwoHundrethSeconds,
+                    SectorTwoMilliseconds = model.SectorTwoMilliseconds,
+                    SectorThreeMinutes = model.SectorThreeMinutes,
+                    SectorThreeSeconds = model.SectorThreeSeconds,
+                    SectorThreeTenthSeconds = model.SectorThreeTenthSeconds,
+                    SectorThreeHundrethSeconds = model.SectorThreeHundrethSeconds,
+                    SectorThreeMilliseconds = model.SectorThreeMilliseconds,
                     CreatedUtc = DateTimeOffset.UtcNow
                 };
             using (var ctx = new ApplicationDbContext())
@@ -47,6 +63,7 @@ namespace Racing.Service
                     ctx
                         .Laps
                         .Where(e => e.OwnerId == _userId)
+                        .ToList()
                         .Select(
                             e =>
                                 new LapList
@@ -92,10 +109,26 @@ namespace Racing.Service
                     ctx
                         .Laps
                         .Single(e => e.LapId == model.LapId && e.OwnerId == _userId);
-                entity.LapTime = model.LapTime;
-                entity.SectorOne = model.SectorOne;
-                entity.SectorTwo = model.SectorTwo;
-                entity.SectorThree = model.SectorThree;
+                entity.LapMinutes = model.LapMinutes;
+                entity.LapSeconds = model.LapSeconds;
+                entity.LapTenthSeconds = model.LapTenthSeconds;
+                entity.LapHundrethSeconds = model.LapHundrethSeconds;
+                entity.LapMilliseconds = model.LapMilliseconds;
+                entity.SectorOneMinutes = model.SectorOneMinutes;
+                entity.SectorOneSeconds = model.SectorOneSeconds;
+                entity.SectorOneTenthSeconds = model.SectorOneTenthSeconds;
+                entity.SectorOneHundrethSeconds = model.SectorOneHundrethSeconds;
+                entity.SectorOneMilliseconds = model.SectorOneMilliseconds;
+                entity.SectorTwoMinutes = model.SectorTwoMinutes;
+                entity.SectorTwoSeconds = model.SectorTwoSeconds;
+                entity.SectorTwoTenthSeconds = model.SectorTwoTenthSeconds;
+                entity.SectorTwoHundrethSeconds = model.SectorTwoHundrethSeconds;
+                entity.SectorTwoMilliseconds = model.SectorTwoMilliseconds;
+                entity.SectorThreeMinutes = model.SectorThreeMinutes;
+                entity.SectorThreeSeconds = model.SectorThreeSeconds;
+                entity.SectorThreeTenthSeconds = model.SectorThreeTenthSeconds;
+                entity.SectorThreeHundrethSeconds = model.SectorThreeHundrethSeconds;
+                entity.SectorThreeMilliseconds = model.SectorThreeMilliseconds;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

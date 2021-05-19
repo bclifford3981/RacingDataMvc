@@ -52,10 +52,27 @@ namespace RacingDataMvc.Controllers
             var model =
                 new LapEdit
                 {
-                    LapTime = detail.LapTime,
-                    SectorOne = detail.SectorOne,
-                    SectorTwo = detail.SectorTwo,
-                    SectorThree = detail.SectorThree,
+                    SessionId = detail.SessionId,
+                    LapMinutes = detail.LapMinutes,
+                    LapSeconds = detail.LapSeconds,
+                    LapTenthSeconds = detail.LapTenthSeconds,
+                    LapHundrethSeconds = detail.LapHundrethSeconds,
+                    LapMilliseconds = detail.LapMilliseconds,
+                    SectorOneMinutes = detail.SectorOneMinutes,
+                    SectorOneSeconds = detail.SectorOneSeconds,
+                    SectorOneTenthSeconds = detail.SectorOneTenthSeconds,
+                    SectorOneHundrethSeconds = detail.SectorOneHundrethSeconds,
+                    SectorOneMilliseconds = detail.SectorOneMilliseconds,
+                    SectorTwoMinutes = detail.SectorTwoMinutes,
+                    SectorTwoSeconds = detail.SectorTwoSeconds,
+                    SectorTwoTenthSeconds = detail.SectorTwoTenthSeconds,
+                    SectorTwoHundrethSeconds = detail.SectorTwoHundrethSeconds,
+                    SectorTwoMilliseconds = detail.SectorTwoMilliseconds,
+                    SectorThreeMinutes = detail.SectorThreeMinutes,
+                    SectorThreeSeconds = detail.SectorThreeSeconds,
+                    SectorThreeTenthSeconds = detail.SectorThreeTenthSeconds,
+                    SectorThreeHundrethSeconds = detail.SectorThreeHundrethSeconds,
+                    SectorThreeMilliseconds = detail.SectorThreeMilliseconds,
                 };
             return View(model);
         }

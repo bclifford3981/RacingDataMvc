@@ -54,12 +54,12 @@ namespace Racing.Service
                                     SessionId = e.SessionId,
                                     Track = e.Track,
                                     LapList = e.LapList,
-                                    AverageLapTime = (e.AverageLapTime == null) ? 0 : e.AverageLapTime,
-                                    BestLapTime = (e.BestLapTime == null) ? 0 : e.BestLapTime,
-                                    BestSectorOne = (e.BestSectorOne == null) ? 0 : e.BestSectorOne,
-                                    BestSectorTwo = (e.BestSectorTwo == null) ? 0 : e.BestSectorTwo,
-                                    BestSectorThree = (e.BestSectorThree == null) ? 0 : e.BestSectorThree,
-                                    OptimalLap = (e.OptimalLap == null) ? 0 : e.OptimalLap,
+                                    AverageLapTime =  ConvertThing(e.AverageLapTime),
+                                    BestLapTime =  ConvertThing(e.BestLapTime),
+                                    BestSectorOne =  ConvertThing(e.BestSectorOne),
+                                    BestSectorTwo =  ConvertThing(e.BestSectorTwo),
+                                    BestSectorThree = ConvertThing(e.BestSectorThree),
+                                    OptimalLap = ConvertThing(e.OptimalLap),
                                     CreatedUtc = e.CreatedUtc
                                 }
                                 );
@@ -81,12 +81,12 @@ namespace Racing.Service
                 SessionId = entity.SessionId,
                 Track = entity.Track,
                 LapList = entity.LapList,
-                AverageLapTime = entity.AverageLapTime,
-                BestLapTime = entity.BestLapTime,
-                BestSectorOne = entity.BestSectorOne,
-                BestSectorTwo = entity.BestSectorTwo,
-                BestSectorThree = entity.BestSectorThree,
-                OptimalLap = entity.OptimalLap,
+                AverageLapTime = ConvertThing(entity.AverageLapTime),
+                BestLapTime = ConvertThing(entity.BestLapTime),
+                BestSectorOne = ConvertThing(entity.BestSectorOne),
+                BestSectorTwo = ConvertThing(entity.BestSectorTwo),
+                BestSectorThree = ConvertThing(entity.BestSectorThree),
+                OptimalLap = ConvertThing(entity.OptimalLap),
                 CreatedUtc = entity.CreatedUtc
             };
             }
@@ -116,6 +116,12 @@ namespace Racing.Service
                 ctx.Sessions.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
+        }
+        static string ConvertThing(string timeInMs)
+        {
+            var timespan = TimeSpan.FromMilliseconds(Convert.ToInt32(timeInMs));
+
+            return string.Format("{0:D2}:{1:D2}.{2:D3}", timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
         }
     }
 }
