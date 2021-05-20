@@ -44,7 +44,6 @@ namespace Racing.Data
         {
             get
             {
-                
                 int search = 0;
                 foreach (Lap lap in LapList)
                 {
