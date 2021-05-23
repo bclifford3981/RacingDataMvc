@@ -101,6 +101,8 @@ namespace Racing.Service
                     };
             }
         }
+        
+        
         public bool UpdateLap(LapEdit model)
         {
             using (var ctx = new ApplicationDbContext())

@@ -17,8 +17,20 @@ namespace Racing.Data
         public virtual Vehicle Vehicle { get; set; }
         [Required]
         public string Track { get; set; }
-        //public List<Lap> LapList { get; set; } 
         public virtual ICollection<Lap> LapList { get; set; }
+        public virtual List<Lap> SessionLaps {
+            get
+            {
+                foreach (Lap lap in LapList)
+                {
+                    if (SessionId == lap.SessionId)
+                    {
+                        SessionLaps.Add(lap);
+                    }
+                }
+                return SessionLaps;
+            }
+        } 
         public string AverageLapTime
         {
             get

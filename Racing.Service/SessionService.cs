@@ -91,6 +91,32 @@ namespace Racing.Service
             };
             }
         }
+        public SessionLapList GetSessionLap(int id)
+        {
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sessions
+                        .Single(e => e.SessionId == id && e.OwnerId == _userId);
+                return
+                    new SessionLapList
+                    {
+                        SessionId = entity.SessionId,
+                        SessionLaps = entity.SessionLaps,
+                        AverageLapTime = ConvertThing(entity.AverageLapTime),
+                        BestLapTime = ConvertThing(entity.BestLapTime),
+                        BestSectorOne = ConvertThing(entity.BestSectorOne),
+                        BestSectorTwo = ConvertThing(entity.BestSectorTwo),
+                        BestSectorThree = ConvertThing(entity.BestSectorThree),
+                        OptimalLap = ConvertThing(entity.OptimalLap),
+                        CreatedUtc = entity.CreatedUtc
+
+
+                    };
+            }
+        }
         public bool UpdateSession(SessionEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -123,5 +149,6 @@ namespace Racing.Service
 
             return string.Format("{0:D2}:{1:D2}.{2:D3}", timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
         }
+        
     }
 }

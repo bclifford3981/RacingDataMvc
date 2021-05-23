@@ -10,13 +10,16 @@ namespace Racing.Model.Session
     public class SessionLapList
     {
         //public List<Lap> LapList { get; set; }
+        public int SessionId { get; set; }
         public virtual ICollection<Lap> LapList { get; set; }
+        public virtual List<Lap> SessionLaps { get; set; }
 
-        public int? AverageLapTime { get; set; }
-        public int? BestLapTime { get; set; }
-        public int? BestSectorOne { get; set; }
-        public int? BestSectorTwo { get; set; }
-        public int? BestSectorThree { get; set; }
-        public int? OptimalLap { get; set; }
+        public string AverageLapTime { get; set; }
+        public string BestLapTime { get; set; }
+        public string BestSectorOne { get; set; }
+        public string BestSectorTwo { get; set; }
+        public string BestSectorThree { get; set; }
+        public string OptimalLap { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

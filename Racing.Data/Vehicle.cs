@@ -21,6 +21,7 @@ namespace Racing.Data
         public double HP { get; set; }
         public decimal Weight { get; set; }
         
+
         //[DefaultValue(false)]
         //public bool? IsStarred { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }

@@ -1,4 +1,7 @@
 ﻿body {
+    background-image: url(\ElevenFiftyProjects\RedBadge\RacingApiMvc\Images);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 50px;
     padding-bottom: 20px;
 }

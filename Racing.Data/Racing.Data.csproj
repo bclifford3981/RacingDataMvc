@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202105191902035_lapRewrite.Designer.cs">
       <DependentUpon>202105191902035_lapRewrite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105231655374_sessionLaps.cs" />
+    <Compile Include="Migrations\202105231655374_sessionLaps.Designer.cs">
+      <DependentUpon>202105231655374_sessionLaps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105191902035_lapRewrite.resx">
       <DependentUpon>202105191902035_lapRewrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105231655374_sessionLaps.resx">
+      <DependentUpon>202105231655374_sessionLaps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
