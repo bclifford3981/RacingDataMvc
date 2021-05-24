@@ -41,7 +41,7 @@ namespace RacingDataMvc.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateLapService();
-            var model = svc.GetLapById(id);
+            var model = svc.GetSessionLaps(id);
 
             return View(model);
         }

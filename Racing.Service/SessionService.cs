@@ -104,7 +104,6 @@ namespace Racing.Service
                     new SessionLapList
                     {
                         SessionId = entity.SessionId,
-                        SessionLaps = entity.SessionLaps,
                         AverageLapTime = ConvertThing(entity.AverageLapTime),
                         BestLapTime = ConvertThing(entity.BestLapTime),
                         BestSectorOne = ConvertThing(entity.BestSectorOne),

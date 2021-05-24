@@ -57,29 +57,13 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Lap.cs" />
-    <Compile Include="Migrations\202105172024332_intial.cs" />
-    <Compile Include="Migrations\202105172024332_intial.Designer.cs">
-      <DependentUpon>202105172024332_intial.cs</DependentUpon>
+    <Compile Include="Migrations\202105231837085_asdf.cs" />
+    <Compile Include="Migrations\202105231837085_asdf.Designer.cs">
+      <DependentUpon>202105231837085_asdf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105181522302_nullables.cs" />
-    <Compile Include="Migrations\202105181522302_nullables.Designer.cs">
-      <DependentUpon>202105181522302_nullables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105181603161_nullables2.cs" />
-    <Compile Include="Migrations\202105181603161_nullables2.Designer.cs">
-      <DependentUpon>202105181603161_nullables2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105181942125_staticmethodprop.cs" />
-    <Compile Include="Migrations\202105181942125_staticmethodprop.Designer.cs">
-      <DependentUpon>202105181942125_staticmethodprop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191902035_lapRewrite.cs" />
-    <Compile Include="Migrations\202105191902035_lapRewrite.Designer.cs">
-      <DependentUpon>202105191902035_lapRewrite.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105231655374_sessionLaps.cs" />
-    <Compile Include="Migrations\202105231655374_sessionLaps.Designer.cs">
-      <DependentUpon>202105231655374_sessionLaps.cs</DependentUpon>
+    <Compile Include="Migrations\202105241852521_change.cs" />
+    <Compile Include="Migrations\202105241852521_change.Designer.cs">
+      <DependentUpon>202105241852521_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,23 +78,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105172024332_intial.resx">
-      <DependentUpon>202105172024332_intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105231837085_asdf.resx">
+      <DependentUpon>202105231837085_asdf.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105181522302_nullables.resx">
-      <DependentUpon>202105181522302_nullables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105181603161_nullables2.resx">
-      <DependentUpon>202105181603161_nullables2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105181942125_staticmethodprop.resx">
-      <DependentUpon>202105181942125_staticmethodprop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191902035_lapRewrite.resx">
-      <DependentUpon>202105191902035_lapRewrite.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105231655374_sessionLaps.resx">
-      <DependentUpon>202105231655374_sessionLaps.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105241852521_change.resx">
+      <DependentUpon>202105241852521_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

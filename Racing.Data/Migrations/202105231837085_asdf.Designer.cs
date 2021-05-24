@@ -7,13 +7,13 @@ namespace Racing.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class intial : IMigrationMetadata
+    public sealed partial class asdf : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(intial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(asdf));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105172024332_intial"; }
+            get { return "202105231837085_asdf"; }
         }
         
         string IMigrationMetadata.Source

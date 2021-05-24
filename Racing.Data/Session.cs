@@ -14,23 +14,14 @@ namespace Racing.Data
         public int SessionId { get; set; }
         [ForeignKey(nameof(Vehicle))]
         public int VehicleId { get; set; }
+        //[ForeignKey(nameof(Lap))]
+        //public int LapId { get; set; }
+        //public virtual Lap Lap { get; set; }
         public virtual Vehicle Vehicle { get; set; }
         [Required]
         public string Track { get; set; }
         public virtual ICollection<Lap> LapList { get; set; }
-        public virtual List<Lap> SessionLaps {
-            get
-            {
-                foreach (Lap lap in LapList)
-                {
-                    if (SessionId == lap.SessionId)
-                    {
-                        SessionLaps.Add(lap);
-                    }
-                }
-                return SessionLaps;
-            }
-        } 
+       
         public string AverageLapTime
         {
             get

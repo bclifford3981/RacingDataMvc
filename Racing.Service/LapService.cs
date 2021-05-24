@@ -80,6 +80,31 @@ namespace Racing.Service
                 return query.ToArray();
             }
         }
+        public IEnumerable<LapList> GetSessionLaps(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Laps
+                        .Where(e => e.SessionId == id && e.OwnerId == _userId)
+                        .ToList()
+                        .Select(
+                            e =>
+                                new LapList
+                                {
+                                    SessionId = e.SessionId,
+                                    LapId = e.LapId,
+                                    LapTime = e.LapTime,
+                                    SectorOne = e.SectorOne,
+                                    SectorTwo = e.SectorTwo,
+                                    SectorThree = e.SectorThree,
+                                    CreatedUtc = e.CreatedUtc
+                                });
+                return query.ToArray();
+                        
+            }
+        }
         public LapDetail GetLapById(int id)
         {
             using (var ctx = new ApplicationDbContext())
