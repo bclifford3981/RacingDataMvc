@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202105241852521_change.Designer.cs">
       <DependentUpon>202105241852521_change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105241930042_Vehicle.cs" />
+    <Compile Include="Migrations\202105241930042_Vehicle.Designer.cs">
+      <DependentUpon>202105241930042_Vehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105241852521_change.resx">
       <DependentUpon>202105241852521_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241930042_Vehicle.resx">
+      <DependentUpon>202105241930042_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

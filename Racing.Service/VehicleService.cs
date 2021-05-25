@@ -32,7 +32,6 @@ namespace Racing.Service
                     Series = model.Series,
                     HP = model.HP,
                     Weight = model.Weight,
-                    
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
@@ -55,7 +54,8 @@ namespace Racing.Service
                                 {
                                     VehicleId = e.VehicleId,
                                     Name = e.Name,
-                                    Class = e.Class,            
+                                    Class = e.Class,
+                                    SessionList = e.SessionList,
                                     
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -80,7 +80,7 @@ namespace Racing.Service
                         Series = entity.Series,
                         HP = entity.HP,
                         Weight = entity.Weight,
-                        
+                        SessionList = entity.SessionList,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };

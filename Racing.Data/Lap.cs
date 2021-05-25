@@ -15,7 +15,6 @@ namespace Racing.Data
         [ForeignKey(nameof(Session))]
         public int SessionId { get; set; }
         public virtual Session Session { get; set; }
-        
         [Range(0,59)]
         public int LapMinutes { get; set; }
         [Range(0,59)]

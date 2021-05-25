@@ -13,7 +13,7 @@ namespace Racing.Model.Session
         public string Track { get; set; }
         public int VehicleId { get; set; }
         //public List<Lap> LapList { get; set; }
-        public virtual ICollection<Lap> LapList { get; set; }
+        public virtual List<Lap> LapList { get; set; }
         public string AverageLapTime { get; set; }
         public string BestLapTime { get; set; }
         public string BestSectorOne { get; set; }

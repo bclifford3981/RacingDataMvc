@@ -1,4 +1,5 @@
 ﻿using Racing.Data;
+using Racing.Model.Laps;
 using Racing.Model.Session;
 using RacingDataMvc.Models;
 using System;
@@ -54,6 +55,16 @@ namespace Racing.Service
                                     SessionId = e.SessionId,
                                     Track = e.Track,
                                     LapList = e.LapList,
+                                        //ctx 
+                                        //    .Laps
+                                        //    .Where( s => s.SessionId == e.SessionId)
+                                        //    .Select(s => 
+                                        //        new LapList
+                                        //        {
+                                        //            LapId = s.LapId
+                                        //        }
+                                        //            ),
+                                        
                                     AverageLapTime =  ConvertThing(e.AverageLapTime),
                                     BestLapTime =  ConvertThing(e.BestLapTime),
                                     BestSectorOne =  ConvertThing(e.BestSectorOne),

@@ -8,8 +8,8 @@ namespace Racing.Model.Laps
 {
     public class LapList
     {
-        public int LapId { get; set; }
-        public int SessionId { get; set; }
+        public int LapId { get; set;}
+        public int SessionId { get; set;}
         public int LapTime { get; set; }
         public int SectorOne { get; set; }
         public int SectorTwo { get; set; }
