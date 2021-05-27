@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>@ViewBag.Title - My Racing Data</title>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTable.css" />*@
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" id="layOutWhole">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,6 +32,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Vehicles", "Index", "Vehicle")</li>
                     <li>@Html.ActionLink("Sessions", "Index", "Session")</li>
+                    <li>@Html.ActionLink("Laps", "Index", "Lap")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -40,7 +46,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
