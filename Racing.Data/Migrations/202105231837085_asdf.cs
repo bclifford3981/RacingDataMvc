@@ -3,7 +3,7 @@ namespace Racing.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class adds : DbMigration
+    public partial class asdf : DbMigration
     {
         public override void Up()
         {
@@ -13,12 +13,28 @@ namespace Racing.Data.Migrations
                     {
                         LapId = c.Int(nullable: false, identity: true),
                         SessionId = c.Int(nullable: false),
-                        LapTime = c.Int(nullable: false),
-                        SectorOne = c.Int(nullable: false),
-                        SectorTwo = c.Int(nullable: false),
-                        SectorThree = c.Int(nullable: false),
+                        LapMinutes = c.Int(nullable: false),
+                        LapSeconds = c.Int(nullable: false),
+                        LapTenthSeconds = c.Int(nullable: false),
+                        LapHundrethSeconds = c.Int(nullable: false),
+                        LapMilliseconds = c.Int(nullable: false),
+                        SectorOneMinutes = c.Int(nullable: false),
+                        SectorOneSeconds = c.Int(nullable: false),
+                        SectorOneTenthSeconds = c.Int(nullable: false),
+                        SectorOneHundrethSeconds = c.Int(nullable: false),
+                        SectorOneMilliseconds = c.Int(nullable: false),
+                        SectorTwoMinutes = c.Int(nullable: false),
+                        SectorTwoSeconds = c.Int(nullable: false),
+                        SectorTwoTenthSeconds = c.Int(nullable: false),
+                        SectorTwoHundrethSeconds = c.Int(nullable: false),
+                        SectorTwoMilliseconds = c.Int(nullable: false),
+                        SectorThreeMinutes = c.Int(nullable: false),
+                        SectorThreeSeconds = c.Int(nullable: false),
+                        SectorThreeTenthSeconds = c.Int(nullable: false),
+                        SectorThreeHundrethSeconds = c.Int(nullable: false),
+                        SectorThreeMilliseconds = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
                         OwnerId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.LapId)
@@ -31,6 +47,7 @@ namespace Racing.Data.Migrations
                     {
                         SessionId = c.Int(nullable: false, identity: true),
                         VehicleId = c.Int(nullable: false),
+                        LapId = c.Int(nullable: false),
                         Track = c.String(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
@@ -48,9 +65,8 @@ namespace Racing.Data.Migrations
                         Name = c.String(nullable: false),
                         Class = c.String(nullable: false),
                         Series = c.String(nullable: false),
-                        HP = c.Int(nullable: false),
+                        HP = c.Double(nullable: false),
                         Weight = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        IsStarred = c.Boolean(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                         OwnerId = c.Guid(nullable: false),

@@ -8,8 +8,9 @@ namespace Racing.Model.Session
 {
     public class SessionCreate
     {
-        public int SessionId { get; set; }
+        public int VehicleId { get; set; }
         public string Track { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
+        
+
     }
 }

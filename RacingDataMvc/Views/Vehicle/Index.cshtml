@@ -18,46 +18,54 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Class)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table" id="VehicleIndexTable">
+    <thead>
         <tr>
-            <td>
+            <th>
                 @Html.DisplayNameFor(model => model.VehicleId)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Class)
-            </td>
-            <td>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.CreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.VehicleId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleId })
-            </td>
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Class)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VehicleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VehicleId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
-@section scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#VehicleIndexTable').DataTable();
+    });</script>
+@*@section scripts {
     <script language="javascript" type="text/javascript">
         $(document).ready(function () {
             $("i[data-toggle='star']")
@@ -83,3 +91,4 @@
                 });
         });
     </script>
+    }*@

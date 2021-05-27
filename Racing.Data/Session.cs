@@ -14,24 +14,38 @@ namespace Racing.Data
         public int SessionId { get; set; }
         [ForeignKey(nameof(Vehicle))]
         public int VehicleId { get; set; }
+        //[ForeignKey(nameof(Lap))]
+        //public int LapId { get; set; }
+        //public virtual Lap Lap { get; set; }
         public virtual Vehicle Vehicle { get; set; }
         [Required]
         public string Track { get; set; }
-        public ICollection<Lap> LapList { get; set; }
-        public int AverageLapTime
+        //public int FakeSessionId { get
+        //    { };
+        public virtual List<Lap> LapList { get; set; }
+       
+        public string AverageLapTime
         {
             get
             {
+                int solve = 0;
                 int total = 0;
                 foreach (Lap lap in LapList)
                 {
                     total += lap.LapTime;
                 }
-                int solve = total / LapList.Count();
-                return solve;
+
+                if (LapList.Count == 0)
+                {
+                    solve = 0;
+                    return "0";
+                }
+                solve = total / LapList.Count();
+                return Convert.ToString(solve);
             }
         }
-        public int BestLapTime
+
+        public string BestLapTime
         {
             get
             {
@@ -41,17 +55,17 @@ namespace Racing.Data
                     if (search == 0)
                     {
                         search = lap.LapTime;
-
                     }
                     if (search > lap.LapTime)
                     {
                         search = lap.LapTime;
                     }
+                    
                 }
-                return search;
+                return Convert.ToString(search);
             }
         }
-        public int BestSectorOne
+        public string BestSectorOne
         {
             get
             {
@@ -67,10 +81,11 @@ namespace Racing.Data
                         search = lap.SectorOne;
                     }
                 }
-                return search;
+                return Convert.ToString(search);
             }
+
         }
-        public int BestSectorTwo
+        public string BestSectorTwo
         {
             get
             {
@@ -86,10 +101,11 @@ namespace Racing.Data
                         search = lap.SectorTwo;
                     }
                 }
-                return search;
+                return Convert.ToString(search);
             }
+
         }
-        public int BestSectorThree
+        public string BestSectorThree
         {
             get
             {
@@ -105,23 +121,26 @@ namespace Racing.Data
                         search = lap.SectorThree;
                     }
                 }
-                return search;
+                return Convert.ToString(search);
             }
+
         }
-        public int OptimalLap
+        public string OptimalLap
         {
             get
             {
-                int opt = BestSectorOne + BestSectorTwo + BestSectorThree;
-                return opt;
+                int opt = Convert.ToInt32(BestSectorOne) + Convert.ToInt32(BestSectorTwo) + Convert.ToInt32(BestSectorThree);
+                return Convert.ToString(opt);
             }
+
         }
 
-        //public TempData AvgAirTemp { get; set; }
+            //public TempData AvgAirTemp { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         public Guid OwnerId { get; set; }
+        
 
     }
 }

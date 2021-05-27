@@ -41,6 +41,13 @@ namespace RacingDataMvc.Controllers
             ModelState.AddModelError("", "Session could not be created");
             return RedirectToAction(Convert.ToString(model));
         }
+        public ActionResult SessionLapDetails(int id)
+        {
+            var svc = CreateSessionService();
+            var model = svc.GetSessionLap(id);
+
+            return View(model);
+        }
         public ActionResult Details(int id)
         {
             var svc = CreateSessionService();

@@ -57,9 +57,17 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Lap.cs" />
-    <Compile Include="Migrations\202105171924410_adds.cs" />
-    <Compile Include="Migrations\202105171924410_adds.Designer.cs">
-      <DependentUpon>202105171924410_adds.cs</DependentUpon>
+    <Compile Include="Migrations\202105231837085_asdf.cs" />
+    <Compile Include="Migrations\202105231837085_asdf.Designer.cs">
+      <DependentUpon>202105231837085_asdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241852521_change.cs" />
+    <Compile Include="Migrations\202105241852521_change.Designer.cs">
+      <DependentUpon>202105241852521_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241930042_Vehicle.cs" />
+    <Compile Include="Migrations\202105241930042_Vehicle.Designer.cs">
+      <DependentUpon>202105241930042_Vehicle.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +82,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105171924410_adds.resx">
-      <DependentUpon>202105171924410_adds.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105231837085_asdf.resx">
+      <DependentUpon>202105231837085_asdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241852521_change.resx">
+      <DependentUpon>202105241852521_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241930042_Vehicle.resx">
+      <DependentUpon>202105241930042_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,6 +51,7 @@
     <Compile Include="Session\SessionCreate.cs" />
     <Compile Include="Session\SessionDetail.cs" />
     <Compile Include="Session\SessionEdit.cs" />
+    <Compile Include="Session\SessionLapList.cs" />
     <Compile Include="Session\SessionList.cs" />
     <Compile Include="Vehicle\VehicleCreate.cs" />
     <Compile Include="Vehicle\VehicleDetail.cs" />

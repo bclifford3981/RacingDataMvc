@@ -1,6 +1,14 @@
 ﻿body {
-    padding-top: 50px;
+    background: black url("https://tse3.mm.bing.net/th?id=OIP.rKiYHn-EiML38ifvAA1KIQHaEK&pid=Api") no-repeat fixed center;
+    padding-top: 80px;
     padding-bottom: 20px;
+    background-size: 100% 100%;
+    color: white;
+    opacity: 1;
+}
+#layOutWhole {
+    background-color: black;
+    color:white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +29,41 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#homeIndex {
+    font-family: "Monaco", 'Courier New', monospace;
+    color: white;
+    opacity: 1;
+    padding-bottom: 3%;
+
+}
+#bigQuote{
+    padding-top: 3%;
+    align-content: center;
+}
+#bigQuoteContainer{
+    border: 5px medium white;
+    color:white;
+    opacity: 1;
+    align-content: center;
+
+}
+#kartingHome{
+    height: 40%;
+    width: 80%;
+    align-content: center;
+    float: right;
+}
+.stepBorder{
+    border:solid white;
+}
+#lapIndexTable{
+    color: black;
+}
+#SessionIndexTable{
+    color: black;
+}
+#VehicleIndexTable{
+    color: black;
 }

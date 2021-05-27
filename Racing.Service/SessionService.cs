@@ -1,8 +1,10 @@
 ﻿using Racing.Data;
+using Racing.Model.Laps;
 using Racing.Model.Session;
 using RacingDataMvc.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,9 @@ namespace Racing.Service
                 new Session()
                 {
                     OwnerId = _userId,
+                    VehicleId = model.VehicleId,
                     Track = model.Track,
+                  
                     CreatedUtc = DateTimeOffset.UtcNow
                 };
             using (var ctx = new ApplicationDbContext())
@@ -42,6 +46,7 @@ namespace Racing.Service
                     ctx
                         .Sessions
                         .Where(e => e.OwnerId == _userId)
+                        .ToList()
                         .Select(
                             e =>
                                 new SessionList
@@ -50,16 +55,26 @@ namespace Racing.Service
                                     SessionId = e.SessionId,
                                     Track = e.Track,
                                     LapList = e.LapList,
-                                    AverageLapTime = e.AverageLapTime,
-                                    BestLapTime = e.BestLapTime,
-                                    BestSectorOne = e.BestSectorOne,
-                                    BestSectorTwo = e.BestSectorTwo,
-                                    BestSectorThree = e.BestSectorThree,
-                                    OptimalLap = e.OptimalLap,
+                                        //ctx 
+                                        //    .Laps
+                                        //    .Where( s => s.SessionId == e.SessionId)
+                                        //    .Select(s => 
+                                        //        new LapList
+                                        //        {
+                                        //            LapId = s.LapId
+                                        //        }
+                                        //            ),
+                                        
+                                    AverageLapTime =  ConvertThing(e.AverageLapTime),
+                                    BestLapTime =  ConvertThing(e.BestLapTime),
+                                    BestSectorOne =  ConvertThing(e.BestSectorOne),
+                                    BestSectorTwo =  ConvertThing(e.BestSectorTwo),
+                                    BestSectorThree = ConvertThing(e.BestSectorThree),
+                                    OptimalLap = ConvertThing(e.OptimalLap),
                                     CreatedUtc = e.CreatedUtc
                                 }
                                 );
-                return query.ToArray();
+                    return query.ToArray();
             }
         }
         public SessionDetail GetSessionById(int id)
@@ -77,15 +92,39 @@ namespace Racing.Service
                 SessionId = entity.SessionId,
                 Track = entity.Track,
                 LapList = entity.LapList,
-                AverageLapTime = entity.AverageLapTime,
-                BestLapTime = entity.BestLapTime,
-                BestSectorOne = entity.BestSectorOne,
-                BestSectorTwo = entity.BestSectorTwo,
-                BestSectorThree = entity.BestSectorThree,
-                OptimalLap = entity.OptimalLap,
+                AverageLapTime = ConvertThing(entity.AverageLapTime),
+                BestLapTime = ConvertThing(entity.BestLapTime),
+                BestSectorOne = ConvertThing(entity.BestSectorOne),
+                BestSectorTwo = ConvertThing(entity.BestSectorTwo),
+                BestSectorThree = ConvertThing(entity.BestSectorThree),
+                OptimalLap = ConvertThing(entity.OptimalLap),
                 CreatedUtc = entity.CreatedUtc
             };
+            }
+        }
+        public SessionLapList GetSessionLap(int id)
+        {
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sessions
+                        .Single(e => e.SessionId == id && e.OwnerId == _userId);
+                return
+                    new SessionLapList
+                    {
+                        SessionId = entity.SessionId,
+                        AverageLapTime = ConvertThing(entity.AverageLapTime),
+                        BestLapTime = ConvertThing(entity.BestLapTime),
+                        BestSectorOne = ConvertThing(entity.BestSectorOne),
+                        BestSectorTwo = ConvertThing(entity.BestSectorTwo),
+                        BestSectorThree = ConvertThing(entity.BestSectorThree),
+                        OptimalLap = ConvertThing(entity.OptimalLap),
+                        CreatedUtc = entity.CreatedUtc
 
+
+                    };
             }
         }
         public bool UpdateSession(SessionEdit model)
@@ -114,5 +153,12 @@ namespace Racing.Service
                 return ctx.SaveChanges() == 1;
             }
         }
+        static string ConvertThing(string timeInMs)
+        {
+            var timespan = TimeSpan.FromMilliseconds(Convert.ToInt32(timeInMs));
+
+            return string.Format("{0:D2}:{1:D2}.{2:D3}", timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
+        }
+        
     }
 }

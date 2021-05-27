@@ -14,8 +14,10 @@ namespace Racing.Model.Vehicle
         public string Name { get; set; }
         public string Class { get; set; }
         public string Series { get; set; }
-        public int HP { get; set; }
+        public double HP { get; set; }
         public decimal Weight { get; set; }
+        public virtual ICollection<Racing.Data.Session> SessionList { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
