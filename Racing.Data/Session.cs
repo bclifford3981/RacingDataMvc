@@ -22,8 +22,10 @@ namespace Racing.Data
         public string Track { get; set; }
         //public int FakeSessionId { get
         //    { };
+        // Return List of all laps in database
+
         public virtual List<Lap> LapList { get; set; }
-       
+
         public string AverageLapTime
         {
             get

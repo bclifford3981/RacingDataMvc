@@ -55,16 +55,16 @@ namespace Racing.Service
                                     SessionId = e.SessionId,
                                     Track = e.Track,
                                     LapList = e.LapList,
-                                        //ctx 
-                                        //    .Laps
-                                        //    .Where( s => s.SessionId == e.SessionId)
-                                        //    .Select(s => 
-                                        //        new LapList
-                                        //        {
-                                        //            LapId = s.LapId
-                                        //        }
-                                        //            ),
-                                        
+                                    //ctx
+                                    //        .Laps
+                                    //        .Where(s => s.SessionId == e.SessionId)
+                                    //        .Select(s =>
+                                    //            new LapList
+                                    //            {
+                                    //                LapId = s.LapId
+                                    //            }
+                                    //                ),
+
                                     AverageLapTime =  ConvertThing(e.AverageLapTime),
                                     BestLapTime =  ConvertThing(e.BestLapTime),
                                     BestSectorOne =  ConvertThing(e.BestSectorOne),
@@ -122,8 +122,6 @@ namespace Racing.Service
                         BestSectorThree = ConvertThing(entity.BestSectorThree),
                         OptimalLap = ConvertThing(entity.OptimalLap),
                         CreatedUtc = entity.CreatedUtc
-
-
                     };
             }
         }
@@ -159,6 +157,5 @@ namespace Racing.Service
 
             return string.Format("{0:D2}:{1:D2}.{2:D3}", timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
         }
-        
     }
 }

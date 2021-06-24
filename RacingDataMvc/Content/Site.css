@@ -1,5 +1,5 @@
 ﻿body {
-    background: black url("https://tse3.mm.bing.net/th?id=OIP.rKiYHn-EiML38ifvAA1KIQHaEK&pid=Api") no-repeat fixed center;
+    background: black url("http://www.photos-public-domain.com/wp-content/uploads/2012/01/gray-fabric-texture.jpg") no-repeat fixed center;
     padding-top: 80px;
     padding-bottom: 20px;
     background-size: 100% 100%;
@@ -66,4 +66,7 @@ textarea {
 }
 #VehicleIndexTable{
     color: black;
+}
+.table{
+    background: grey;
 }
